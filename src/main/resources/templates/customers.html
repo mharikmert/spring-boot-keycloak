@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title> Customers Page </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<div id="container">
+    <h1>
+        <!-- Keycloak username -->
+        Hello, <span th:text="${username}"></span>.
+    </h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody >
+            <tr th:each="customer : ${customers}">
+<!--                <th scope="row" th:text="${customer.id}"> </th>-->
+                <td th:text="${customer.id}"> </td>
+                <td th:text="${customer.name}"> </td>
+                <td th:text="${customer.address}"> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="add-customer-btn">
+        <button class="btn btn-secondary" id="add-customer-btn"> Add New Customer </button>
+        <button class="btn btn-secondary" id="save-customer-btn" style ='visibility: hidden'> Save </button>
+    </div>
+
+    <a href="/logout">Logout</a>
+</div>
+<!-- container -->
+
+<script src = "customers.js"></script>
+</body>
+</html>
